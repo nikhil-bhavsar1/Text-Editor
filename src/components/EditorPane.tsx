@@ -17,7 +17,7 @@ interface EditorPaneProps {
     };
 }
 
-export const EditorPane = ({ code, onChange, language = "markdown", onMount, fontSize = 16, settings }: EditorPaneProps) => {
+export const EditorPane = ({ code, onChange, onMount, fontSize = 16, settings }: EditorPaneProps) => {
     const editorRef = useRef<ReactCodeMirrorRef>(null);
 
     useEffect(() => {
