@@ -24,7 +24,7 @@ export const PreviewPane = ({ code, settings }: PreviewPaneProps) => {
     if (settings.math) rehypePlugins.push(rehypeKatex);
 
     return (
-        <div className="h-full w-full overflow-y-auto bg-secondary custom-scrollbar">
+        <div className="preview-scroll-container">
             <div className="markdown-preview">
                 <ReactMarkdown
                     remarkPlugins={remarkPlugins}
