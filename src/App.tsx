@@ -3,7 +3,7 @@ import { EditorPane } from './components/EditorPane';
 import { PreviewPane } from './components/PreviewPane';
 import { FormattingToolbar } from './components/FormattingToolbar';
 import { openFile, saveFile, saveFileAs } from './utils/fileSystem';
-import { FileUp, FilePlus, LayoutTemplate, Columns, Download, Printer, Maximize2, Minimize2, Sun, Moon, Settings, Sparkles } from 'lucide-react';
+import { FileUp, FilePlus, LayoutTemplate, Columns, Download, Printer, Maximize2, Minimize2, Sun, Moon, Settings, Sparkles, Save } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import './App.css';
 
@@ -236,6 +236,7 @@ $$
                 <FileSpeedDial
                     onNew={() => { setCode(''); setFileHandle(null); }}
                     onOpen={handleOpen}
+                    onSave={handleSave}
                     onSaveAs={handleSaveAs}
                     onExport={handlePrint}
                 />
@@ -264,7 +265,7 @@ $$
     );
 }
 
-const FileSpeedDial = ({ onNew, onOpen, onSaveAs, onExport }: any) => {
+const FileSpeedDial = ({ onNew, onOpen, onSave, onSaveAs, onExport }: any) => {
     const [isOpen, setIsOpen] = useState(false);
 
     const toggleOpen = () => setIsOpen(!isOpen);
@@ -272,9 +273,11 @@ const FileSpeedDial = ({ onNew, onOpen, onSaveAs, onExport }: any) => {
     const menuItems = [
         { icon: <Printer size={20} />, label: "Export PDF", onClick: onExport },
         { icon: <Download size={20} />, label: "Save As", onClick: onSaveAs },
+        { icon: <Save size={20} />, label: "Save", onClick: onSave },
         { icon: <FileUp size={20} />, label: "Open File", onClick: onOpen },
         { icon: <FilePlus size={20} />, label: "New File", onClick: onNew },
     ];
+    // ... rest of component
 
     return (
         <div className="speed-dial-container">

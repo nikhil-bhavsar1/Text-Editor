@@ -8,7 +8,7 @@ import { EditorView } from "@codemirror/view";
 interface EditorPaneProps {
     code: string;
     onChange: (value: string | undefined) => void;
-    language?: string;
+
     onMount?: (insertFn: (text: string, offset?: number) => void) => void;
     fontSize?: number;
     settings?: {
@@ -17,7 +17,7 @@ interface EditorPaneProps {
     };
 }
 
-export const EditorPane = ({ code, onChange, language = "markdown", onMount, fontSize = 16, settings }: EditorPaneProps) => {
+export const EditorPane = ({ code, onChange, onMount, fontSize = 16, settings }: EditorPaneProps) => {
     const editorRef = useRef<ReactCodeMirrorRef>(null);
 
     useEffect(() => {
