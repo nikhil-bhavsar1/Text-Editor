@@ -1,0 +1,293 @@
+Forced re-optimization of dependencies
+
+  VITE v5.4.21  ready in 282 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: use --host to expose
+  ➜  press h + enter to show help
+12:25:13 PM [vite] hmr update /src/components/LatexPreview.tsx
+12:28:43 PM [vite] hmr update /src/components/LatexPreview.tsx
+12:31:22 PM [vite] hmr update /src/components/LatexPreview.tsx
+12:44:42 PM [vite] hmr update /src/components/LatexPreview.tsx
+12:50:08 PM [vite] hmr update /src/components/LatexPreview.tsx
+1:20:16 PM [vite] hmr update /src/components/LatexPreview.tsx
+1:24:07 PM [vite] hmr update /src/App.tsx
+1:24:18 PM [vite] hmr update /src/App.tsx
+1:24:28 PM [vite] hmr update /src/App.tsx
+1:24:39 PM [vite] hmr update /src/App.tsx
+1:25:39 PM [vite] hmr update /src/components/LatexPreview.tsx
+1:25:53 PM [vite] hmr update /src/components/LatexPreview.tsx
+1:26:02 PM [vite] hmr update /src/components/LatexPreview.tsx
+1:26:14 PM [vite] hmr update /src/components/LatexPreview.tsx
+1:35:31 PM [vite] hmr update /src/components/LatexPreview.tsx
+1:39:54 PM [vite] hmr update /src/App.tsx
+1:45:19 PM [vite] hmr update /src/App.tsx
+1:45:19 PM [vite] Internal server error: /home/nikhil/Gemini Workspace/Text Editor/src/App.tsx: Unexpected token (199:4)
+
+  197 |
+  198 |     return (
+> 199 |     return (
+      |     ^
+  200 |         <div style={{ position: 'fixed', bottom: '24px', right: '24px', zIndex: 9999, display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '12px' }}>
+  201 |             <AnimatePresence>
+  202 |                 {isOpen && (
+  Plugin: vite:react-babel
+  File: /home/nikhil/Gemini Workspace/Text Editor/src/App.tsx:199:4
+  197|  
+  198|      return (
+  199|      return (
+     |      ^
+  200|          <div style={{ position: 'fixed', bottom: '24px', right: '24px', zIndex: 9999, display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '12px' }}>
+  201|              <AnimatePresence>
+      at constructor (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:365:19)
+      at TypeScriptParserMixin.raise (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:6599:19)
+      at TypeScriptParserMixin.unexpected (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:6619:16)
+      at TypeScriptParserMixin.parseExprAtom (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:11432:22)
+      at TypeScriptParserMixin.parseExprAtom (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:4764:20)
+      at TypeScriptParserMixin.parseExprSubscripts (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:11071:23)
+      at TypeScriptParserMixin.parseUpdate (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:11056:21)
+      at TypeScriptParserMixin.parseMaybeUnary (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:11036:23)
+      at TypeScriptParserMixin.parseMaybeUnary (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:9827:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:10889:61)
+      at TypeScriptParserMixin.parseExprOps (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:10894:23)
+      at TypeScriptParserMixin.parseMaybeConditional (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:10871:23)
+      at TypeScriptParserMixin.parseMaybeAssign (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:10821:21)
+      at TypeScriptParserMixin.parseMaybeAssign (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:9776:20)
+      at /home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:10790:39
+      at TypeScriptParserMixin.allowInAnd (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:12416:12)
+      at TypeScriptParserMixin.parseMaybeAssignAllowIn (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:10790:17)
+      at TypeScriptParserMixin.parseMaybeAssignAllowInOrVoidPattern (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:12483:17)
+      at TypeScriptParserMixin.parseParenAndDistinguishExpression (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:11665:28)
+      at TypeScriptParserMixin.parseExprAtom (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:11321:23)
+      at TypeScriptParserMixin.parseExprAtom (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:4764:20)
+      at TypeScriptParserMixin.parseExprSubscripts (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:11071:23)
+      at TypeScriptParserMixin.parseUpdate (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:11056:21)
+      at TypeScriptParserMixin.parseMaybeUnary (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:11036:23)
+      at TypeScriptParserMixin.parseMaybeUnary (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:9827:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:10889:61)
+      at TypeScriptParserMixin.parseExprOps (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:10894:23)
+      at TypeScriptParserMixin.parseMaybeConditional (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:10871:23)
+      at TypeScriptParserMixin.parseMaybeAssign (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:10821:21)
+      at TypeScriptParserMixin.parseMaybeAssign (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:9776:20)
+      at TypeScriptParserMixin.parseExpressionBase (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:10774:23)
+      at /home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:10770:39
+      at TypeScriptParserMixin.allowInAnd (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:12411:16)
+      at TypeScriptParserMixin.parseExpression (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:10770:17)
+      at TypeScriptParserMixin.parseReturnStatement (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:13132:28)
+      at TypeScriptParserMixin.parseStatementContent (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:12788:21)
+      at TypeScriptParserMixin.parseStatementContent (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:9508:18)
+      at TypeScriptParserMixin.parseStatementLike (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:12757:17)
+      at TypeScriptParserMixin.parseStatementListItem (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:12737:17)
+      at TypeScriptParserMixin.parseBlockOrModuleBlockBody (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:13306:61)
+      at TypeScriptParserMixin.parseBlockBody (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:13299:10)
+      at TypeScriptParserMixin.parseBlock (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:13287:10)
+      at TypeScriptParserMixin.parseFunctionBody (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:12090:24)
+      at TypeScriptParserMixin.parseArrowExpression (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:12065:10)
+      at TypeScriptParserMixin.parseParenAndDistinguishExpression (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:11677:12)
+      at TypeScriptParserMixin.parseExprAtom (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:11321:23)
+      at TypeScriptParserMixin.parseExprAtom (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:4764:20)
+      at TypeScriptParserMixin.parseExprSubscripts (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:11071:23)
+      at TypeScriptParserMixin.parseUpdate (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:11056:21)
+      at TypeScriptParserMixin.parseMaybeUnary (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:11036:23)
+1:45:19 PM [vite] Internal server error: /home/nikhil/Gemini Workspace/Text Editor/src/App.tsx: Unexpected token (199:4)
+
+  197 |
+  198 |     return (
+> 199 |     return (
+      |     ^
+  200 |         <div style={{ position: 'fixed', bottom: '24px', right: '24px', zIndex: 9999, display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '12px' }}>
+  201 |             <AnimatePresence>
+  202 |                 {isOpen && (
+  Plugin: vite:react-babel
+  File: /home/nikhil/Gemini Workspace/Text Editor/src/App.tsx:199:4
+  197|  
+  198|      return (
+  199|      return (
+     |      ^
+  200|          <div style={{ position: 'fixed', bottom: '24px', right: '24px', zIndex: 9999, display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '12px' }}>
+  201|              <AnimatePresence>
+      at constructor (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:365:19)
+      at TypeScriptParserMixin.raise (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:6599:19)
+      at TypeScriptParserMixin.unexpected (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:6619:16)
+      at TypeScriptParserMixin.parseExprAtom (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:11432:22)
+      at TypeScriptParserMixin.parseExprAtom (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:4764:20)
+      at TypeScriptParserMixin.parseExprSubscripts (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:11071:23)
+      at TypeScriptParserMixin.parseUpdate (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:11056:21)
+      at TypeScriptParserMixin.parseMaybeUnary (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:11036:23)
+      at TypeScriptParserMixin.parseMaybeUnary (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:9827:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:10889:61)
+      at TypeScriptParserMixin.parseExprOps (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:10894:23)
+      at TypeScriptParserMixin.parseMaybeConditional (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:10871:23)
+      at TypeScriptParserMixin.parseMaybeAssign (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:10821:21)
+      at TypeScriptParserMixin.parseMaybeAssign (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:9776:20)
+      at /home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:10790:39
+      at TypeScriptParserMixin.allowInAnd (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:12416:12)
+      at TypeScriptParserMixin.parseMaybeAssignAllowIn (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:10790:17)
+      at TypeScriptParserMixin.parseMaybeAssignAllowInOrVoidPattern (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:12483:17)
+      at TypeScriptParserMixin.parseParenAndDistinguishExpression (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:11665:28)
+      at TypeScriptParserMixin.parseExprAtom (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:11321:23)
+      at TypeScriptParserMixin.parseExprAtom (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:4764:20)
+      at TypeScriptParserMixin.parseExprSubscripts (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:11071:23)
+      at TypeScriptParserMixin.parseUpdate (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:11056:21)
+      at TypeScriptParserMixin.parseMaybeUnary (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:11036:23)
+      at TypeScriptParserMixin.parseMaybeUnary (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:9827:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:10889:61)
+      at TypeScriptParserMixin.parseExprOps (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:10894:23)
+      at TypeScriptParserMixin.parseMaybeConditional (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:10871:23)
+      at TypeScriptParserMixin.parseMaybeAssign (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:10821:21)
+      at TypeScriptParserMixin.parseMaybeAssign (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:9776:20)
+      at TypeScriptParserMixin.parseExpressionBase (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:10774:23)
+      at /home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:10770:39
+      at TypeScriptParserMixin.allowInAnd (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:12411:16)
+      at TypeScriptParserMixin.parseExpression (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:10770:17)
+      at TypeScriptParserMixin.parseReturnStatement (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:13132:28)
+      at TypeScriptParserMixin.parseStatementContent (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:12788:21)
+      at TypeScriptParserMixin.parseStatementContent (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:9508:18)
+      at TypeScriptParserMixin.parseStatementLike (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:12757:17)
+      at TypeScriptParserMixin.parseStatementListItem (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:12737:17)
+      at TypeScriptParserMixin.parseBlockOrModuleBlockBody (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:13306:61)
+      at TypeScriptParserMixin.parseBlockBody (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:13299:10)
+      at TypeScriptParserMixin.parseBlock (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:13287:10)
+      at TypeScriptParserMixin.parseFunctionBody (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:12090:24)
+      at TypeScriptParserMixin.parseArrowExpression (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:12065:10)
+      at TypeScriptParserMixin.parseParenAndDistinguishExpression (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:11677:12)
+      at TypeScriptParserMixin.parseExprAtom (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:11321:23)
+      at TypeScriptParserMixin.parseExprAtom (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:4764:20)
+      at TypeScriptParserMixin.parseExprSubscripts (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:11071:23)
+      at TypeScriptParserMixin.parseUpdate (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:11056:21)
+      at TypeScriptParserMixin.parseMaybeUnary (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:11036:23)
+1:45:19 PM [vite] Internal server error: /home/nikhil/Gemini Workspace/Text Editor/src/App.tsx: Unexpected token (199:4)
+
+  197 |
+  198 |     return (
+> 199 |     return (
+      |     ^
+  200 |         <div style={{ position: 'fixed', bottom: '24px', right: '24px', zIndex: 9999, display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '12px' }}>
+  201 |             <AnimatePresence>
+  202 |                 {isOpen && (
+  Plugin: vite:react-babel
+  File: /home/nikhil/Gemini Workspace/Text Editor/src/App.tsx:199:4
+  197|  
+  198|      return (
+  199|      return (
+     |      ^
+  200|          <div style={{ position: 'fixed', bottom: '24px', right: '24px', zIndex: 9999, display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '12px' }}>
+  201|              <AnimatePresence>
+      at constructor (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:365:19)
+      at TypeScriptParserMixin.raise (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:6599:19)
+      at TypeScriptParserMixin.unexpected (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:6619:16)
+      at TypeScriptParserMixin.parseExprAtom (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:11432:22)
+      at TypeScriptParserMixin.parseExprAtom (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:4764:20)
+      at TypeScriptParserMixin.parseExprSubscripts (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:11071:23)
+      at TypeScriptParserMixin.parseUpdate (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:11056:21)
+      at TypeScriptParserMixin.parseMaybeUnary (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:11036:23)
+      at TypeScriptParserMixin.parseMaybeUnary (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:9827:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:10889:61)
+      at TypeScriptParserMixin.parseExprOps (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:10894:23)
+      at TypeScriptParserMixin.parseMaybeConditional (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:10871:23)
+      at TypeScriptParserMixin.parseMaybeAssign (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:10821:21)
+      at TypeScriptParserMixin.parseMaybeAssign (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:9776:20)
+      at /home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:10790:39
+      at TypeScriptParserMixin.allowInAnd (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:12416:12)
+      at TypeScriptParserMixin.parseMaybeAssignAllowIn (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:10790:17)
+      at TypeScriptParserMixin.parseMaybeAssignAllowInOrVoidPattern (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:12483:17)
+      at TypeScriptParserMixin.parseParenAndDistinguishExpression (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:11665:28)
+      at TypeScriptParserMixin.parseExprAtom (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:11321:23)
+      at TypeScriptParserMixin.parseExprAtom (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:4764:20)
+      at TypeScriptParserMixin.parseExprSubscripts (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:11071:23)
+      at TypeScriptParserMixin.parseUpdate (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:11056:21)
+      at TypeScriptParserMixin.parseMaybeUnary (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:11036:23)
+      at TypeScriptParserMixin.parseMaybeUnary (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:9827:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:10889:61)
+      at TypeScriptParserMixin.parseExprOps (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:10894:23)
+      at TypeScriptParserMixin.parseMaybeConditional (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:10871:23)
+      at TypeScriptParserMixin.parseMaybeAssign (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:10821:21)
+      at TypeScriptParserMixin.parseMaybeAssign (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:9776:20)
+      at TypeScriptParserMixin.parseExpressionBase (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:10774:23)
+      at /home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:10770:39
+      at TypeScriptParserMixin.allowInAnd (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:12411:16)
+      at TypeScriptParserMixin.parseExpression (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:10770:17)
+      at TypeScriptParserMixin.parseReturnStatement (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:13132:28)
+      at TypeScriptParserMixin.parseStatementContent (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:12788:21)
+      at TypeScriptParserMixin.parseStatementContent (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:9508:18)
+      at TypeScriptParserMixin.parseStatementLike (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:12757:17)
+      at TypeScriptParserMixin.parseStatementListItem (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:12737:17)
+      at TypeScriptParserMixin.parseBlockOrModuleBlockBody (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:13306:61)
+      at TypeScriptParserMixin.parseBlockBody (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:13299:10)
+      at TypeScriptParserMixin.parseBlock (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:13287:10)
+      at TypeScriptParserMixin.parseFunctionBody (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:12090:24)
+      at TypeScriptParserMixin.parseArrowExpression (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:12065:10)
+      at TypeScriptParserMixin.parseParenAndDistinguishExpression (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:11677:12)
+      at TypeScriptParserMixin.parseExprAtom (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:11321:23)
+      at TypeScriptParserMixin.parseExprAtom (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:4764:20)
+      at TypeScriptParserMixin.parseExprSubscripts (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:11071:23)
+      at TypeScriptParserMixin.parseUpdate (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:11056:21)
+      at TypeScriptParserMixin.parseMaybeUnary (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:11036:23)
+1:45:19 PM [vite] Internal server error: /home/nikhil/Gemini Workspace/Text Editor/src/App.tsx: Unexpected token (199:4)
+
+  197 |
+  198 |     return (
+> 199 |     return (
+      |     ^
+  200 |         <div style={{ position: 'fixed', bottom: '24px', right: '24px', zIndex: 9999, display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '12px' }}>
+  201 |             <AnimatePresence>
+  202 |                 {isOpen && (
+  Plugin: vite:react-babel
+  File: /home/nikhil/Gemini Workspace/Text Editor/src/App.tsx:199:4
+  197|  
+  198|      return (
+  199|      return (
+     |      ^
+  200|          <div style={{ position: 'fixed', bottom: '24px', right: '24px', zIndex: 9999, display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '12px' }}>
+  201|              <AnimatePresence>
+      at constructor (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:365:19)
+      at TypeScriptParserMixin.raise (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:6599:19)
+      at TypeScriptParserMixin.unexpected (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:6619:16)
+      at TypeScriptParserMixin.parseExprAtom (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:11432:22)
+      at TypeScriptParserMixin.parseExprAtom (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:4764:20)
+      at TypeScriptParserMixin.parseExprSubscripts (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:11071:23)
+      at TypeScriptParserMixin.parseUpdate (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:11056:21)
+      at TypeScriptParserMixin.parseMaybeUnary (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:11036:23)
+      at TypeScriptParserMixin.parseMaybeUnary (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:9827:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:10889:61)
+      at TypeScriptParserMixin.parseExprOps (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:10894:23)
+      at TypeScriptParserMixin.parseMaybeConditional (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:10871:23)
+      at TypeScriptParserMixin.parseMaybeAssign (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:10821:21)
+      at TypeScriptParserMixin.parseMaybeAssign (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:9776:20)
+      at /home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:10790:39
+      at TypeScriptParserMixin.allowInAnd (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:12416:12)
+      at TypeScriptParserMixin.parseMaybeAssignAllowIn (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:10790:17)
+      at TypeScriptParserMixin.parseMaybeAssignAllowInOrVoidPattern (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:12483:17)
+      at TypeScriptParserMixin.parseParenAndDistinguishExpression (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:11665:28)
+      at TypeScriptParserMixin.parseExprAtom (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:11321:23)
+      at TypeScriptParserMixin.parseExprAtom (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:4764:20)
+      at TypeScriptParserMixin.parseExprSubscripts (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:11071:23)
+      at TypeScriptParserMixin.parseUpdate (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:11056:21)
+      at TypeScriptParserMixin.parseMaybeUnary (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:11036:23)
+      at TypeScriptParserMixin.parseMaybeUnary (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:9827:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:10889:61)
+      at TypeScriptParserMixin.parseExprOps (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:10894:23)
+      at TypeScriptParserMixin.parseMaybeConditional (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:10871:23)
+      at TypeScriptParserMixin.parseMaybeAssign (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:10821:21)
+      at TypeScriptParserMixin.parseMaybeAssign (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:9776:20)
+      at TypeScriptParserMixin.parseExpressionBase (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:10774:23)
+      at /home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:10770:39
+      at TypeScriptParserMixin.allowInAnd (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:12411:16)
+      at TypeScriptParserMixin.parseExpression (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:10770:17)
+      at TypeScriptParserMixin.parseReturnStatement (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:13132:28)
+      at TypeScriptParserMixin.parseStatementContent (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:12788:21)
+      at TypeScriptParserMixin.parseStatementContent (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:9508:18)
+      at TypeScriptParserMixin.parseStatementLike (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:12757:17)
+      at TypeScriptParserMixin.parseStatementListItem (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:12737:17)
+      at TypeScriptParserMixin.parseBlockOrModuleBlockBody (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:13306:61)
+      at TypeScriptParserMixin.parseBlockBody (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:13299:10)
+      at TypeScriptParserMixin.parseBlock (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:13287:10)
+      at TypeScriptParserMixin.parseFunctionBody (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:12090:24)
+      at TypeScriptParserMixin.parseArrowExpression (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:12065:10)
+      at TypeScriptParserMixin.parseParenAndDistinguishExpression (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:11677:12)
+      at TypeScriptParserMixin.parseExprAtom (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:11321:23)
+      at TypeScriptParserMixin.parseExprAtom (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:4764:20)
+      at TypeScriptParserMixin.parseExprSubscripts (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:11071:23)
+      at TypeScriptParserMixin.parseUpdate (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:11056:21)
+      at TypeScriptParserMixin.parseMaybeUnary (/home/nikhil/Gemini Workspace/Text Editor/node_modules/@babel/parser/lib/index.js:11036:23)
+1:45:37 PM [vite] hmr update /src/App.tsx
