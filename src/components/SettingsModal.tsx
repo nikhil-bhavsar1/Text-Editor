@@ -1,4 +1,4 @@
-import { X, Sparkles, Sliders, ChevronRight, Save, Key } from 'lucide-react';
+import { X, Sparkles, Sliders, ChevronRight, Save, Key, Package } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -21,6 +21,7 @@ interface SettingsModalProps {
     setAiEnabled: (enabled: boolean) => void;
     editorSettings: EditorSettings;
     setEditorSettings: (val: EditorSettings) => void;
+    onTexManagerClick?: () => void;
 }
 
 export const SettingsModal = ({
@@ -33,7 +34,8 @@ export const SettingsModal = ({
     aiEnabled,
     setAiEnabled,
     editorSettings,
-    setEditorSettings
+    setEditorSettings,
+    onTexManagerClick
 }: SettingsModalProps) => {
     // Local state for buffering changes
     const [localKey, setLocalKey] = useState(apiKey);
@@ -240,6 +242,30 @@ export const SettingsModal = ({
                                         </motion.div>
                                     )}
                                 </AnimatePresence>
+                            </div>
+
+                            <div className="settings-divider" />
+
+                            {/* TeX Packages Section */}
+                            <div className="settings-section">
+                                <button
+                                    onClick={onTexManagerClick}
+                                    className="settings-section-btn group"
+                                >
+                                    <div className="settings-section-label">
+                                        <div className="section-icon-wrapper purple">
+                                            <Package size={18} />
+                                        </div>
+                                        <div className="flex flex-col items-start">
+                                            <h3 className="section-title">TeX Packages</h3>
+                                            <span className="text-xs text-zinc-500">Manage LaTeX packages and features</span>
+                                        </div>
+                                    </div>
+                                    <ChevronRight
+                                        size={18}
+                                        className="section-arrow"
+                                    />
+                                </button>
                             </div>
 
                         </div>

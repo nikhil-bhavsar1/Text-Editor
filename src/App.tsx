@@ -10,6 +10,52 @@ import './App.css';
 import { LatexPreview } from './components/LatexPreview';
 import { SettingsModal } from './components/SettingsModal';
 import { AIAssistant } from './components/AIAssistant';
+import { TexLiveManager } from './components/TexLiveManager';
+
+// Default LaTeX template with proper structure (compatible with latex.js)
+const LATEX_TEMPLATE = String.raw`\documentclass{article}
+\usepackage{amsmath}
+
+\begin{document}
+
+\section*{Welcome to LaTeX Mode}
+
+This is a sample LaTeX document demonstrating various features available in the M/L Editor's TeX mode.
+
+\subsection*{Mathematical Equations}
+
+\textbf{Inline Math:} The famous equation $E = mc^2$ revolutionized physics.
+
+\textbf{Display Math:} The quadratic formula:
+$$x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$$
+
+\textbf{More Equations:}
+$$\int_0^\infty e^{-x^2} dx = \frac{\sqrt{\pi}}{2}$$
+
+$$\sum_{n=1}^{\infty} \frac{1}{n^2} = \frac{\pi^2}{6}$$
+
+\subsection*{Lists}
+
+\textbf{Itemized List:}
+\begin{itemize}
+    \item First item with \textbf{bold text}
+    \item Second item with \textit{italic text}
+    \item Third item with regular text
+\end{itemize}
+
+\textbf{Enumerated List:}
+\begin{enumerate}
+    \item First numbered item
+    \item Second numbered item
+    \item Third numbered item
+\end{enumerate}
+
+\subsection*{Conclusion}
+
+This template demonstrates the power of LaTeX for professional document typesetting. You can edit this content and see real-time preview on the right.
+
+\end{document}
+`;
 
 // Helper function to load from local storage
 const loadFromStorage = <T,>(key: string, defaultValue: T): T => {
@@ -62,6 +108,23 @@ $$
     const [showPreview, setShowPreview] = useState(true);
     const [isFullScreen, setIsFullScreen] = useState(false);
     const [isLatexMode, setIsLatexMode] = useState(false);
+    const [savedMarkdownContent, setSavedMarkdownContent] = useState<string | null>(null);
+    const [savedLatexContent, setSavedLatexContent] = useState<string | null>(null);
+
+    // Handle mode toggle with content switching
+    const handleModeToggle = () => {
+        if (isLatexMode) {
+            // Switching from LaTeX to Markdown
+            setSavedLatexContent(code);
+            setCode(savedMarkdownContent || code);
+            setIsLatexMode(false);
+        } else {
+            // Switching from Markdown to LaTeX
+            setSavedMarkdownContent(code);
+            setCode(savedLatexContent || LATEX_TEMPLATE);
+            setIsLatexMode(true);
+        }
+    };
     const [isAiAssistantOpen, setIsAiAssistantOpen] = useState(false);
 
     // Persistent State
@@ -71,6 +134,7 @@ $$
 
     // Settings State
     const [isSettingsOpen, setIsSettingsOpen] = useState(false);
+    const [isTexManagerOpen, setIsTexManagerOpen] = useState(false);
     const [apiKey, setApiKey] = useState(() => loadFromSession('apiKey', ''));
     const [apiBaseUrl, setApiBaseUrl] = useState(() => loadFromStorage('apiBaseUrl', ''));
     const [aiEnabled, setAiEnabled] = useState(() => loadFromStorage('aiEnabled', false));
@@ -132,7 +196,7 @@ $$
                     <div className="toolbar-actions">
                         {/* View Controls remain in header */}
                         <button
-                            onClick={() => setIsLatexMode(!isLatexMode)}
+                            onClick={handleModeToggle}
                             className={`toolbar-btn ${isLatexMode ? 'active' : ''} font-mono text-xs`}
                             title="Toggle Full LaTeX Mode"
                         >
@@ -200,6 +264,7 @@ $$
                                     if (insertRef.current) insertRef.current(text, offset);
                                 }}
                                 onFontSizeChange={(delta) => setFontSize(prev => Math.max(10, Math.min(30, prev + delta)))}
+                                onTexManagerClick={() => setIsTexManagerOpen(true)}
                             />
                             <div className="flex-1 overflow-hidden relative border-r border-white/10">
                                 <EditorPane
@@ -253,6 +318,10 @@ $$
                 setAiEnabled={setAiEnabled}
                 editorSettings={editorSettings}
                 setEditorSettings={setEditorSettings}
+                onTexManagerClick={() => {
+                    setIsSettingsOpen(false);
+                    setIsTexManagerOpen(true);
+                }}
             />
 
             <AIAssistant
@@ -260,6 +329,16 @@ $$
                 onClose={() => setIsAiAssistantOpen(false)}
                 apiKey={apiKey}
                 apiBaseUrl={apiBaseUrl}
+                code={deferredCode}
+            />
+
+            <TexLiveManager
+                isOpen={isTexManagerOpen}
+                onClose={() => setIsTexManagerOpen(false)}
+                onInsert={(text) => {
+                    if (insertRef.current) insertRef.current(text, 0);
+                }}
+                code={code}
             />
         </>
     );

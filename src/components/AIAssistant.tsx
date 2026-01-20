@@ -15,9 +15,10 @@ interface AIAssistantProps {
     onClose: () => void;
     apiKey: string;
     apiBaseUrl?: string;
+    code: string;
 }
 
-export const AIAssistant = ({ isOpen, onClose, apiKey, apiBaseUrl }: AIAssistantProps) => {
+export const AIAssistant = ({ isOpen, onClose, apiKey, apiBaseUrl, code }: AIAssistantProps) => {
     const [input, setInput] = useState('');
     const [messages, setMessages] = useState<Message[]>([
         {
@@ -53,6 +54,7 @@ export const AIAssistant = ({ isOpen, onClose, apiKey, apiBaseUrl }: AIAssistant
         setIsLoading(true);
 
         if (!apiKey) {
+            // ... (keep existing timeout logic)
             setTimeout(() => {
                 const aiMsg: Message = {
                     id: (Date.now() + 1).toString(),
@@ -67,7 +69,19 @@ export const AIAssistant = ({ isOpen, onClose, apiKey, apiBaseUrl }: AIAssistant
         }
 
         try {
-            const response = await generateContent(apiKey, userMsg.content, apiBaseUrl);
+            // Context-aware prompt construction
+            const contextPrompt = `
+Context - Current File Content:
+\`\`\`
+${code}
+\`\`\`
+
+User Question: ${userMsg.content}
+
+Please analyze the code above if relevant to answer the question.
+`.trim();
+
+            const response = await generateContent(apiKey, contextPrompt, apiBaseUrl);
 
             const aiMsg: Message = {
                 id: (Date.now() + 1).toString(),
@@ -77,6 +91,7 @@ export const AIAssistant = ({ isOpen, onClose, apiKey, apiBaseUrl }: AIAssistant
             };
             setMessages(prev => [...prev, aiMsg]);
         } catch (e) {
+            // ... (keep error handling)
             const errorMsg: Message = {
                 id: (Date.now() + 1).toString(),
                 role: 'assistant',

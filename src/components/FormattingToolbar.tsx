@@ -4,14 +4,28 @@ import {
     Table, Sigma, FunctionSquare, Activity,
     Strikethrough, Underline, Highlighter, ZoomIn, ZoomOut
 } from 'lucide-react';
+import { ReactNode } from 'react';
 
 interface FormattingToolbarProps {
     onInsert: (template: string, offset?: number) => void;
     onFontSizeChange?: (delta: number) => void;
+    onTexManagerClick?: () => void;
 }
 
+type ToolbarItem = {
+    icon: ReactNode;
+    label: string;
+    action: () => void;
+    separator?: never;
+} | {
+    separator: true;
+    icon?: never;
+    label?: never;
+    action?: never;
+};
+
 export const FormattingToolbar = ({ onInsert, onFontSizeChange }: FormattingToolbarProps) => {
-    const tools = [
+    const tools: ToolbarItem[] = [
         { icon: <Heading1 size={16} />, label: "H1", action: () => onInsert("# ", 0) },
         { icon: <Heading2 size={16} />, label: "H2", action: () => onInsert("## ", 0) },
         { icon: <Heading3 size={16} />, label: "H3", action: () => onInsert("### ", 0) },
@@ -33,6 +47,7 @@ export const FormattingToolbar = ({ onInsert, onFontSizeChange }: FormattingTool
         { separator: true },
         { icon: <Sigma size={16} />, label: "Inline Math", action: () => onInsert("$E=mc^2$", 1) },
         { icon: <FunctionSquare size={16} />, label: "Block Math", action: () => onInsert("\n$$\n\\frac{1}{2}\n$$\n", 4) },
+
         { icon: <Activity size={16} />, label: "Mermaid", action: () => onInsert("\n```mermaid\ngraph TD;\n    A-->B;\n```\n", 0) },
         { separator: true },
         { icon: <ZoomIn size={16} />, label: "Increase Font", action: () => onFontSizeChange?.(1) },
@@ -47,10 +62,11 @@ export const FormattingToolbar = ({ onInsert, onFontSizeChange }: FormattingTool
                 ) : (
                     <button
                         key={index}
-                        onClick={(tool as any).action}
-                        title={(tool as any).label}
+                        type="button"
+                        onClick={tool.action}
+                        title={tool.label}
                     >
-                        {(tool as any).icon}
+                        {tool.icon}
                     </button>
                 )
             ))}
