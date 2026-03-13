@@ -3,7 +3,7 @@ import { EditorPane } from './components/EditorPane';
 import { PreviewPane } from './components/PreviewPane';
 import { FormattingToolbar } from './components/FormattingToolbar';
 import { openFile, saveFile, saveFileAs } from './utils/fileSystem';
-import { FileUp, FilePlus, LayoutTemplate, Columns, Download, Printer, Maximize2, Minimize2, Sun, Moon, Settings, Sparkles, Save, User, Github } from 'lucide-react';
+import { FileUp, FilePlus, LayoutTemplate, Columns, Download, Printer, Maximize2, Minimize2, Sun, Moon, Settings, Sparkles, Save, User, UploadCloud, RefreshCw } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import './App.css';
 
@@ -12,7 +12,7 @@ import { SettingsModal } from './components/SettingsModal';
 import { AIAssistant } from './components/AIAssistant';
 import { TexLiveManager } from './components/TexLiveManager';
 import { AuthModal } from './components/AuthModal';
-import { GitHubPushModal } from './components/GitHubPushModal';
+import { CloudSyncModal, WorkspaceConfig } from './components/CloudSyncModal';
 import { Toaster } from 'react-hot-toast';
 
 // Default LaTeX template with proper structure (compatible with latex.js)
@@ -134,7 +134,13 @@ $$
     const [user, setUser] = useState<any>(null);
     const [githubToken, setGithubToken] = useState<string | null>(null);
     const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
-    const [isGitHubModalOpen, setIsGitHubModalOpen] = useState(false);
+    const [isCloudSyncOpen, setIsCloudSyncOpen] = useState(false);
+    const [workspace, setWorkspace] = useState<WorkspaceConfig>(() => {
+        try {
+            const saved = localStorage.getItem('workspaceConfig');
+            return saved ? JSON.parse(saved) : { githubRepo: '', githubFolder: '', githubAutoSync: false, driveFolder: '', driveFileId: '', driveAutoSync: false };
+        } catch { return { githubRepo: '', githubFolder: '', githubAutoSync: false, driveFolder: '', driveFileId: '', driveAutoSync: false }; }
+    });
 
     // Persistent State
     const [isDarkPaper, setIsDarkPaper] = useState(() => loadFromStorage('isDarkPaper', true));
@@ -163,7 +169,8 @@ $$
         localStorage.setItem('apiBaseUrl', JSON.stringify(apiBaseUrl));
         localStorage.setItem('aiEnabled', JSON.stringify(aiEnabled));
         localStorage.setItem('editorSettings', JSON.stringify(editorSettings));
-    }, [isDarkPaper, fontSize, apiKey, apiBaseUrl, aiEnabled, editorSettings]);
+        localStorage.setItem('workspaceConfig', JSON.stringify(workspace));
+    }, [isDarkPaper, fontSize, apiKey, apiBaseUrl, aiEnabled, editorSettings, workspace]);
 
     const insertRef = useRef<((text: string, offset?: number) => void) | null>(null);
 
@@ -330,7 +337,8 @@ $$
                     onSave={handleSave}
                     onSaveAs={handleSaveAs}
                     onExport={handlePrint}
-                    onPushGitHub={() => setIsGitHubModalOpen(true)}
+                    onPushGitHub={() => setIsCloudSyncOpen(true)}
+                    onSync={() => setIsCloudSyncOpen(true)}
                 />
             </div >
 
@@ -345,6 +353,8 @@ $$
                 setAiEnabled={setAiEnabled}
                 editorSettings={editorSettings}
                 setEditorSettings={setEditorSettings}
+                workspace={workspace}
+                onWorkspaceChange={(ws) => setWorkspace(ws)}
                 onTexManagerClick={() => {
                     setIsSettingsOpen(false);
                     setIsTexManagerOpen(true);
@@ -377,11 +387,14 @@ $$
                 }}
             />
 
-            <GitHubPushModal
-                isOpen={isGitHubModalOpen}
-                onClose={() => setIsGitHubModalOpen(false)}
+            <CloudSyncModal
+                isOpen={isCloudSyncOpen}
+                onClose={() => setIsCloudSyncOpen(false)}
                 githubToken={githubToken}
                 documentContent={code}
+                onContentSync={(content) => setCode(content)}
+                workspace={workspace}
+                onWorkspaceChange={(ws) => setWorkspace(ws)}
             />
 
             <Toaster position="bottom-right" />
@@ -389,13 +402,14 @@ $$
     );
 }
 
-const FileSpeedDial = ({ onNew, onOpen, onSave, onSaveAs, onExport, onPushGitHub }: any) => {
+const FileSpeedDial = ({ onNew, onOpen, onSave, onSaveAs, onExport, onPushGitHub, onSync }: any) => {
     const [isOpen, setIsOpen] = useState(false);
 
     const toggleOpen = () => setIsOpen(!isOpen);
 
     const menuItems = [
-        { icon: <Github size={20} />, label: "Push to GitHub", onClick: onPushGitHub },
+        { icon: <RefreshCw size={20} />, label: "Sync", onClick: onSync },
+        { icon: <UploadCloud size={20} />, label: "Cloud Save", onClick: onPushGitHub },
         { icon: <Printer size={20} />, label: "Export PDF", onClick: onExport },
         { icon: <Download size={20} />, label: "Save As", onClick: onSaveAs },
         { icon: <Save size={20} />, label: "Save", onClick: onSave },

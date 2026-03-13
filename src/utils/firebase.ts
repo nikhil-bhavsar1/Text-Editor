@@ -22,6 +22,7 @@ try {
         app = initializeApp(firebaseConfig);
         auth = getAuth(app);
         googleProvider = new GoogleAuthProvider();
+        googleProvider.addScope('https://www.googleapis.com/auth/drive.file');
         githubProvider = new GithubAuthProvider();
 
         // Add scopes for GitHub provider if needed (e.g., to read/write repos)

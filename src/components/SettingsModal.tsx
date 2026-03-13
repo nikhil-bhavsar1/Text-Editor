@@ -1,4 +1,5 @@
-import { X, Sparkles, Sliders, ChevronRight, Save, Key, Package } from 'lucide-react';
+import { X, Sparkles, Sliders, ChevronRight, Save, Key, Package, FolderSync } from 'lucide-react';
+import { WorkspaceConfig } from './CloudSyncModal';
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -22,6 +23,8 @@ interface SettingsModalProps {
     editorSettings: EditorSettings;
     setEditorSettings: (val: EditorSettings) => void;
     onTexManagerClick?: () => void;
+    workspace?: WorkspaceConfig;
+    onWorkspaceChange?: (ws: WorkspaceConfig) => void;
 }
 
 export const SettingsModal = ({
@@ -35,13 +38,16 @@ export const SettingsModal = ({
     setAiEnabled,
     editorSettings,
     setEditorSettings,
-    onTexManagerClick
+    onTexManagerClick,
+    workspace,
+    onWorkspaceChange
 }: SettingsModalProps) => {
     // Local state for buffering changes
     const [localKey, setLocalKey] = useState(apiKey);
     const [localApiBaseUrl, setLocalApiBaseUrl] = useState(apiBaseUrl);
     const [localEnabled, setLocalEnabled] = useState(aiEnabled);
     const [localSettings, setLocalSettings] = useState<EditorSettings>(editorSettings);
+    const [localWorkspace, setLocalWorkspace] = useState<WorkspaceConfig>(workspace || { githubRepo: '', githubFolder: '', githubAutoSync: false, driveFolder: '', driveFileId: '', driveAutoSync: false });
 
     // Section expansion state
     const [expandedSection, setExpandedSection] = useState<string | null>('ai');
@@ -52,6 +58,7 @@ export const SettingsModal = ({
             setLocalApiBaseUrl(apiBaseUrl);
             setLocalEnabled(aiEnabled);
             setLocalSettings(editorSettings);
+            if (workspace) setLocalWorkspace(workspace);
         }
     }, [isOpen, apiKey, apiBaseUrl, aiEnabled, editorSettings]);
 
@@ -60,6 +67,7 @@ export const SettingsModal = ({
         setApiBaseUrl(localApiBaseUrl);
         setAiEnabled(localEnabled);
         setEditorSettings(localSettings);
+        if (onWorkspaceChange) onWorkspaceChange(localWorkspace);
         onClose();
     };
 
@@ -238,6 +246,74 @@ export const SettingsModal = ({
                                                 >
                                                     <span className={`settings-toggle-thumb ${localSettings.wordWrap ? 'active' : ''}`} />
                                                 </button>
+                                            </div>
+                                        </motion.div>
+                                    )}
+                                </AnimatePresence>
+                            </div>
+
+                            <div className="settings-divider" />
+
+                            {/* Workspace Section */}
+                            <div className="settings-section">
+                                <button
+                                    onClick={() => toggleSection('workspace')}
+                                    className="settings-section-btn group"
+                                >
+                                    <div className="settings-section-label">
+                                        <div className="section-icon-wrapper" style={{ background: 'rgba(139,92,246,0.1)', color: '#a78bfa' }}>
+                                            <FolderSync size={18} />
+                                        </div>
+                                        <h3 className="section-title">Workspace</h3>
+                                    </div>
+                                    <ChevronRight
+                                        size={18}
+                                        className={`section-arrow ${expandedSection === 'workspace' ? 'expanded' : ''}`}
+                                    />
+                                </button>
+
+                                <AnimatePresence>
+                                    {expandedSection === 'workspace' && (
+                                        <motion.div
+                                            initial={{ height: 0, opacity: 0 }}
+                                            animate={{ height: 'auto', opacity: 1 }}
+                                            exit={{ height: 0, opacity: 0 }}
+                                            className="settings-section-details"
+                                        >
+                                            <p className="input-hint" style={{ marginBottom: 12 }}>Configure where your files are saved and synced.</p>
+
+                                            <div className="settings-input-group animate-in">
+                                                <label className="input-label">GitHub Repository</label>
+                                                <input
+                                                    type="text"
+                                                    value={localWorkspace.githubRepo}
+                                                    onChange={(e) => setLocalWorkspace(prev => ({ ...prev, githubRepo: e.target.value }))}
+                                                    placeholder="username/repo"
+                                                    className="settings-input"
+                                                />
+                                            </div>
+
+                                            <div className="settings-input-group animate-in">
+                                                <label className="input-label">GitHub File Path</label>
+                                                <input
+                                                    type="text"
+                                                    value={localWorkspace.githubFolder}
+                                                    onChange={(e) => setLocalWorkspace(prev => ({ ...prev, githubFolder: e.target.value }))}
+                                                    placeholder="docs/notes.md"
+                                                    className="settings-input"
+                                                />
+                                            </div>
+
+                                            <div className="settings-input-group animate-in">
+                                                <label className="input-label">Google Drive Folder ID</label>
+                                                <input
+                                                    type="text"
+                                                    value={localWorkspace.driveFolder}
+                                                    onChange={(e) => setLocalWorkspace(prev => ({ ...prev, driveFolder: e.target.value }))}
+                                                    placeholder="Optional — leave blank for root"
+                                                    className="settings-input"
+                                                />
+                                                <p className="input-hint">Find the folder ID in the Google Drive URL after /folders/</p>
                                             </div>
                                         </motion.div>
                                     )}
