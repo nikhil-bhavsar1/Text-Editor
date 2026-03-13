@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
 @import 'katex/dist/katex.min.css';
+@import "tailwindcss";
 
 :root {
   --bg-primary: #0a0a0a;
@@ -403,58 +404,70 @@ button {
     padding-left: 1em;
   }
 }
+
 /* Light Mode Styles */
 .markdown-preview.light-mode {
-    background-color: #ffffff;
-    color: #1f2937; /* gray-800 */
+  background-color: #ffffff;
+  color: #1f2937;
+  /* gray-800 */
 }
 
 .markdown-preview.light-mode h1,
 .markdown-preview.light-mode h2,
 .markdown-preview.light-mode h3,
 .markdown-preview.light-mode h4 {
-    color: #111827; /* gray-900 */
-    border-bottom-color: #e5e7eb;
+  color: #111827;
+  /* gray-900 */
+  border-bottom-color: #e5e7eb;
 }
 
 .markdown-preview.light-mode a {
-    color: #2563eb; /* blue-600 */
+  color: #2563eb;
+  /* blue-600 */
 }
 
 .markdown-preview.light-mode a:hover {
-    color: #1d4ed8; /* blue-700 */
+  color: #1d4ed8;
+  /* blue-700 */
 }
 
 .markdown-preview.light-mode code {
-    background: #f3f4f6; /* gray-100 */
-    color: #db2777; /* pink-600 */
-    border: 1px solid #e5e7eb;
+  background: #f3f4f6;
+  /* gray-100 */
+  color: #db2777;
+  /* pink-600 */
+  border: 1px solid #e5e7eb;
 }
 
 .markdown-preview.light-mode pre {
-    background: #f9fafb; /* gray-50 */
-    border: 1px solid #e5e7eb;
-    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  background: #f9fafb;
+  /* gray-50 */
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
 }
 
 .markdown-preview.light-mode pre code {
-    background: transparent;
-    color: inherit;
-    border: none;
+  background: transparent;
+  color: inherit;
+  border: none;
 }
 
 .markdown-preview.light-mode blockquote {
-    background: #eff6ff; /* blue-50 */
-    color: #4b5563; /* gray-600 */
-    border-left-color: #3b82f6; /* blue-500 */
+  background: #eff6ff;
+  /* blue-50 */
+  color: #4b5563;
+  /* gray-600 */
+  border-left-color: #3b82f6;
+  /* blue-500 */
 }
 
 .markdown-preview.light-mode th {
-    background: #f9fafb; /* gray-50 */
-    color: #111827;
+  background: #f9fafb;
+  /* gray-50 */
+  color: #111827;
 }
 
 .markdown-preview.light-mode th,
 .markdown-preview.light-mode td {
-    border-color: #e5e7eb;
+  border-color: #e5e7eb;
 }

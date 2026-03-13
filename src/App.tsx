@@ -3,7 +3,7 @@ import { EditorPane } from './components/EditorPane';
 import { PreviewPane } from './components/PreviewPane';
 import { FormattingToolbar } from './components/FormattingToolbar';
 import { openFile, saveFile, saveFileAs } from './utils/fileSystem';
-import { FileUp, FilePlus, LayoutTemplate, Columns, Download, Printer, Maximize2, Minimize2, Sun, Moon, Settings, Sparkles, Save } from 'lucide-react';
+import { FileUp, FilePlus, LayoutTemplate, Columns, Download, Printer, Maximize2, Minimize2, Sun, Moon, Settings, Sparkles, Save, User, Github } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import './App.css';
 
@@ -11,6 +11,9 @@ import { LatexPreview } from './components/LatexPreview';
 import { SettingsModal } from './components/SettingsModal';
 import { AIAssistant } from './components/AIAssistant';
 import { TexLiveManager } from './components/TexLiveManager';
+import { AuthModal } from './components/AuthModal';
+import { GitHubPushModal } from './components/GitHubPushModal';
+import { Toaster } from 'react-hot-toast';
 
 // Default LaTeX template with proper structure (compatible with latex.js)
 const LATEX_TEMPLATE = String.raw`\documentclass{article}
@@ -126,6 +129,12 @@ $$
         }
     };
     const [isAiAssistantOpen, setIsAiAssistantOpen] = useState(false);
+
+    // Auth State
+    const [user, setUser] = useState<any>(null);
+    const [githubToken, setGithubToken] = useState<string | null>(null);
+    const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
+    const [isGitHubModalOpen, setIsGitHubModalOpen] = useState(false);
 
     // Persistent State
     const [isDarkPaper, setIsDarkPaper] = useState(() => loadFromStorage('isDarkPaper', true));
@@ -249,6 +258,23 @@ $$
                             active={isFullScreen}
                         />
                         <ToolbarButton
+                            icon={user ? (
+                                <img src={user.photoURL || `https://ui-avatars.com/api/?name=${user.email || 'U'}`} alt="User" className="w-[18px] h-[18px] rounded-full" />
+                            ) : (
+                                <User size={18} />
+                            )}
+                            onClick={() => {
+                                if (user) {
+                                    // Normally you'd want a dropdown here to logout, but for simplicity we'll just open AuthModal or handle logout
+                                    // For now, let's just make it a toggle
+                                    setIsAuthModalOpen(true);
+                                } else {
+                                    setIsAuthModalOpen(true);
+                                }
+                            }}
+                            label={user ? (user.displayName || "Profile") : "Login"}
+                        />
+                        <ToolbarButton
                             icon={<Settings size={18} />}
                             onClick={() => setIsSettingsOpen(true)}
                             label="Settings"
@@ -304,6 +330,7 @@ $$
                     onSave={handleSave}
                     onSaveAs={handleSaveAs}
                     onExport={handlePrint}
+                    onPushGitHub={() => setIsGitHubModalOpen(true)}
                 />
             </div >
 
@@ -340,16 +367,35 @@ $$
                 }}
                 code={code}
             />
+
+            <AuthModal
+                isOpen={isAuthModalOpen}
+                onClose={() => setIsAuthModalOpen(false)}
+                onLoginSuccess={(u: any, token?: string) => {
+                    setUser(u);
+                    if (token) setGithubToken(token);
+                }}
+            />
+
+            <GitHubPushModal
+                isOpen={isGitHubModalOpen}
+                onClose={() => setIsGitHubModalOpen(false)}
+                githubToken={githubToken}
+                documentContent={code}
+            />
+
+            <Toaster position="bottom-right" />
         </>
     );
 }
 
-const FileSpeedDial = ({ onNew, onOpen, onSave, onSaveAs, onExport }: any) => {
+const FileSpeedDial = ({ onNew, onOpen, onSave, onSaveAs, onExport, onPushGitHub }: any) => {
     const [isOpen, setIsOpen] = useState(false);
 
     const toggleOpen = () => setIsOpen(!isOpen);
 
     const menuItems = [
+        { icon: <Github size={20} />, label: "Push to GitHub", onClick: onPushGitHub },
         { icon: <Printer size={20} />, label: "Export PDF", onClick: onExport },
         { icon: <Download size={20} />, label: "Save As", onClick: onSaveAs },
         { icon: <Save size={20} />, label: "Save", onClick: onSave },
